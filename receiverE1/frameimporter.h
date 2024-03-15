@@ -10,4 +10,6 @@
 
 using namespace std;
 
+vector<string> importFrame(string filename);
+
 #endif
