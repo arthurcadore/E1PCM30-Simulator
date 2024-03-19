@@ -1,15 +1,4 @@
-
-
-// Create a new PCM-30 frame using random data for the payload slots. 
-
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <iostream>
-
-using namespace std;
+#include "generator.h"
 
 string AuxBit = "1";
 string FAW = "0011011";

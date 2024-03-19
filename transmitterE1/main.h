@@ -9,6 +9,8 @@
 #include <vector>
 #include <iostream>
 #include <unistd.h>
+#include "generator.h"
+#include "writer.h"
 
 using namespace std;
 
