@@ -15,7 +15,7 @@ int main() {
         //cout << "Frame not aligned" << endl;
         alignment = aligner(frame);
         }else {
-
+            cout << endl;
             cout << "###################################" << endl;
             cout << "Frame " << frameindex << " content: " << endl << endl;
             // check if the frame is a FAW frame by verifing if frame index is an odd number
