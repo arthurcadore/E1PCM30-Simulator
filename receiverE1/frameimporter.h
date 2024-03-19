@@ -3,9 +3,12 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
+#include <stdexcept>
+#include <unistd.h>
 
 using namespace std;
 
-string importFrame(int frameindex, const std::string& filename);
+string importFrame(const string& pipename) ;
 
 #endif // FRAMEIMPORTER_H

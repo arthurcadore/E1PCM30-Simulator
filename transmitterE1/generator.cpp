@@ -21,10 +21,7 @@ string sinalization(){
 }
 
 string auxbyte(){
-    string binary;
-    for (int i = 0; i < 8; i++){
-        binary += to_string(rand() % 2);
-    }
+    string binary = "11010100";
     return binary;
 }
 

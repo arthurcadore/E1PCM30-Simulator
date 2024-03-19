@@ -1,16 +1,15 @@
 #include "writer.h"
 
 string jumboframe; 
+string defaultPipeDirectory = "../transmission/pcm30_transmission_pipe";
 
 // concatenator function to store the frame recived into final of jumboframe 
 void concatenator(string frame){
     jumboframe = jumboframe + frame;
 }
 
-
 void writerpipe(string frame) {
-    // Abre o pipe nomeado em modo de escrita e leitura
-    ofstream fifo("pcm30_transmission_pipe", ios::out | ios::in);
+    ofstream fifo(defaultPipeDirectory, ios::out | ios::in);
 
     if (!fifo.is_open()) {
         cerr << "error opening the pipe" << endl;
@@ -21,7 +20,6 @@ void writerpipe(string frame) {
     fifo.close();
     return;
 }
-
 
 string randomstring(){
     string str;
@@ -41,7 +39,6 @@ void misalignment(){
 }
 
 void writer(string frame){
-    
     
     concatenator(frame);
 

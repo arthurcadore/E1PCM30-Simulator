@@ -5,9 +5,9 @@ bool alignment = false;
 
 int main() {
 
-    for (int i = 0; i < 20; i++) {
+    while(true){
         // import the frame
-        string frame = importFrame(i, "../examples/testTXcode.txt");
+        string frame = importFrame("../transmission/pcm30_transmission_pipe");
         concatenator(frame);
 
         // align the frame
