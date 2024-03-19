@@ -9,7 +9,7 @@ string bytesplitter(string &frame){
     return byte; 
 }
 
-void framesplitter(string frame, bool FawFrame){
+void frameinterpreter(string frame, bool FawFrame){
     // split the PCM30 frame into its components 
     vector<string> frameComponents;
     for (int i = 0; i < 32; i++){
@@ -21,11 +21,17 @@ void framesplitter(string frame, bool FawFrame){
 
     if(FawFrame){
         cout << "Frame Alignment Word: " << frameComponents[0] << endl;
-
-        for (int i = 1; i < 15; i++){
-            cout << "Data byte " << i << ": " << frameComponents[i] << endl;
-        }
+    }else{  
+        cout << "Aux byte 1: " << frameComponents[0] << endl;
+    }
+    
+    for (int i = 1; i < 16; i++){
+        cout << "Frame Slot: " << i+1 << ": " << frameComponents[i] << endl;
     }
 
+    cout << "Sinalization Slot: " << frameComponents[16] << endl;
 
+    for (int i = 17; i < 32; i++){
+        cout << "Frame Slot: " << i+1 << ": " << frameComponents[i] << endl;
+    }
 }

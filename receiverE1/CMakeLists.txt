@@ -10,7 +10,7 @@ project(receiverE1)
 set(CMAKE_CXX_STANDARD 11)
 include_directories(.)
 
-add_executable(receiverE1 main.cpp frameimporter.cpp aligner.cpp)
+add_executable(receiverE1 main.cpp frameimporter.cpp aligner.cpp interpreter.cpp)
 
 add_custom_target(run
     COMMAND receiverE1

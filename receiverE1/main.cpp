@@ -19,10 +19,16 @@ int main() {
             cout << "Frame Aligned" << endl;
             // check if the frame is a FAW frame by verifing if frame index is an odd number
             if (frameindex % 2 != 0){
-                cout << "This is a FAW frame: " << frameGetter() << endl;
-                
+                string frame = frameGetter(); 
+                cout << "This is a FAW frame: " << frame << endl;
+                frameinterpreter(frame, true);
+
+            }else{
+                string frame = frameGetter(); 
+                cout << "This is not a FAW frame: " << frame << endl;
+                frameinterpreter(frame, false);
             }
-            cout << "This is not a FAW frame: " << frameGetter() << endl;
+
             frameindex++;
         }
         // sleep for 1 second

@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 #include "frameimporter.h"
+#include "interpreter.h"
 #include "aligner.h"
 
 using namespace std;
