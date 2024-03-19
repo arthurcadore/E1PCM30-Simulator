@@ -1,6 +1,6 @@
 # E1 PCM-30 Channel Transmitter and Receiver Simulator
 
-### This repository is dedicated to simulate PCM-30 (Pulse-Code Modulation) communication used E1 channels.
+### This repository is dedicated to simulate PCM-30 (Pulse-Code Modulation) communication used in E1 channels.
 
 ---
 ### Getting Started: 
