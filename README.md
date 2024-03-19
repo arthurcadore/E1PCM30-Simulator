@@ -31,7 +31,7 @@ The commands above will create archives for make works, it will allow to build a
 
 ##### Starting the TX program: 
 
-In sequence, *open another terminal* nd in the prompt do the commands below on the directory `./transmitterE1/`:
+In sequence, **open another terminal** nd in the prompt do the commands below on the directory `./transmitterE1/`:
 
 ```
 cmake CMakeList.txt
@@ -41,7 +41,7 @@ The commands above will create archives for make works, it will allow to build a
 
 #### Sniffering the pipe pseudoarchive (optional): 
 
-As said before, the `fifo pipe` is used in this repository as the communication media between the TX and RX program, so we can see the pipe contents by doing the command below: 
+As said before, the `fifo pipe` is used in this repository as the communication media between the TX and RX program, so we can see the pipe contents by doing the command below (**use another terminal**): 
 
 ```
 tail -f ./transmission/pcm30_transmission_pipe | nl
