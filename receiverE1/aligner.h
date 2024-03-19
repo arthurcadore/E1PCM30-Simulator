@@ -17,4 +17,6 @@ bool finderFAW();
 
 bool aligner(string frame);
 
+string frameGetter();
+
 #endif

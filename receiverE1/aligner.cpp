@@ -9,6 +9,7 @@ int alignIndex = 1;
 // concatenator function to store the frame recived into final of jumboframe 
 void concatenator(string frame)
 {
+    alignIndex++;
     jumboframe = jumboframe + frame;
 }
 
@@ -25,8 +26,6 @@ bool finderFAW(){
     else{
         // if the FAWcomplete is found, erase all the bits before the FAWcomplete. 
         jumboframe.erase(0, i);
-        // print the frame aligned 
-        cout << "FrameAlinhado :" << jumboframe << endl;
         return true;
     }
 }
@@ -34,8 +33,6 @@ bool finderFAW(){
 // aligner main function 
 
 bool aligner(string frame){
-    concatenator(frame);
-    alignIndex++;
 
     // print the jumboframe length
     cout << "jumboframe length: " << jumboframe.length() << endl;
@@ -46,6 +43,12 @@ bool aligner(string frame){
     }
 
     return false; 
+}
+
+string frameGetter(){
+    string frame = jumboframe.substr(0, 256);
+    jumboframe.erase(0, 256);
+    return frame;
 }
 
 
