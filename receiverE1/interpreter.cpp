@@ -16,9 +16,6 @@ void frameinterpreter(string frame, bool FawFrame){
         frameComponents.push_back(bytesplitter(frame));
     }
 
-    // print the frame components
-    cout << "Frame components: " << endl;
-
     if(FawFrame){
         cout << "Frame Alignment Word: " << frameComponents[0] << endl;
     }else{  

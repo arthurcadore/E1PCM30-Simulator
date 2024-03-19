@@ -25,10 +25,10 @@ bool finderFAW() {
         return false;
     }
 
-    cout << "Number of bits before the FAWcomplete: " << index << endl;
+    //cout << "Number of bits before the FAWcomplete: " << index << endl;
 
     // print the 256 bits of the frame: 
-    cout << "Frame: " << jumboframe.substr(index, 256) << endl;
+    //cout << "Frame: " << jumboframe.substr(index, 256) << endl;
 
     // Check if the FAW complement bit is "1" on the 257th bit position after FAWcomplete
     if (jumboframe[index + 257] == '1') {
@@ -50,7 +50,7 @@ bool finderFAW() {
 bool aligner(string frame){
 
     // print the jumboframe length
-    cout << "jumboframe length: " << jumboframe.length() << endl;
+    //cout << "jumboframe length: " << jumboframe.length() << endl;
 
     if (alignIndex == 5){
         alignIndex = 0;
