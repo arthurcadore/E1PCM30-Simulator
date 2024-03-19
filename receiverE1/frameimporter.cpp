@@ -1,21 +1,28 @@
 #include "frameimporter.h"
+#include <fstream>
+#include <stdexcept>
 
-// the import frame functions read line by line of the archive inputed. 
-// each line has 256 bits of the frame in sequence. 
-// the functions create a vector of strings, each string is a line of the frame.
-// the vector is returned to the caller.
-
-vector<string> importFrame(string filename) {
+// function to import a frame from a file, witch is a string on a line. 
+// The frameindex is the line number to import from the file
+std::string importFrame(int frameindex, const std::string& filename) {
+    // open the file
     ifstream file(filename);
     if (!file.is_open()) {
-        throw invalid_argument("File not found");
+        throw runtime_error("Could not open file");
     }
-    vector<string> frame;
+
+    // read the file into a vector of strings
+    vector<string> lines;
     string line;
     while (getline(file, line)) {
-        frame.push_back(line);
+        lines.push_back(line);
     }
-    file.close();
-    return frame;
-}
 
+    // if the frameindex is out of range, throw an exception
+    if (frameindex >= lines.size()) {
+        throw runtime_error("Frame index out of range");
+    }
+
+    // return the frame
+    return lines[frameindex];
+}

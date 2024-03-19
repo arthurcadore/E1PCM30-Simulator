@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef ALIGNER_H
+#define ALIGNER_H
 
 #include <stdexcept>
 #include <iostream>
@@ -8,9 +8,13 @@
 #include <sstream>
 #include <vector>
 #include <iostream>
-#include "frameimporter.h"
-#include "aligner.h"
 
 using namespace std;
+
+void concatenator(string frame); 
+
+bool finderFAW();
+
+bool aligner(string frame);
 
 #endif

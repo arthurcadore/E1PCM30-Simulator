@@ -1,9 +1,21 @@
 #include "main.h"
+#include <unistd.h>
+
+int frameindex = 0; 
+bool alignment = false; 
 
 int main() {
-    vector<string> frame = importFrame("frame.txt");
-    for (int i = 0; i < frame.size(); i++) {
-        cout << frame[i] << endl;
+
+    for (int i = 0; i < 10; i++) {
+        // import the frame
+        string frame = importFrame(frameindex, "../examples/testTXcode.txt");
+
+        frameindex++;
+
+        // align the frame
+        aligner(frame);
+
+        // sleep for 1 second
+        sleep(1);
     }
-    return 0;
 }

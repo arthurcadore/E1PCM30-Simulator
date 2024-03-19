@@ -1,15 +1,11 @@
-#ifndef FRAME_IMPORTER
-#define FRAME_IMPORTER
+#ifndef FRAMEIMPORTER_H
+#define FRAMEIMPORTER_H
 
-#include <stdexcept>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-vector<string> importFrame(string filename);
+string importFrame(int frameindex, const std::string& filename);
 
-#endif
+#endif // FRAMEIMPORTER_H
