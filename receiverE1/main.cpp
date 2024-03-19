@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 int frameindex = 1; 
 bool alignment = false; 

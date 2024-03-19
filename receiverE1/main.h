@@ -8,6 +8,7 @@
 #include <sstream>
 #include <vector>
 #include <iostream>
+#include <unistd.h>
 #include "frameimporter.h"
 #include "interpreter.h"
 #include "aligner.h"
