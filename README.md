@@ -100,23 +100,24 @@ To check the communication between the TX and RX programs, the `tail -f ./transm
 
 To stop the programs process, just press `ctrl+C` on your terminal to stop the process.  
 
+---
 ### Algorithm used to sincronize RX: 
 
 The Alignment algorithm used to sincronize the Transmitter and Receiver programs is displayed below: 
 
 ```mermaid
 flowchart TD
-    A(["Alinhado"]) --> B{"FAW?"}
+    A(["aligned"]) --> B{"FAW?"}
     B -- "NO" --> C[+2 FRAMES]
     C --> D{"FAW?"} 
     C -- "YES" --> E[+2 FRAMES] 
-    E --> H2(["Alinhado"])
+    E --> H2(["aligned"])
     B -- "YES" --> I[+2 FRAMES] 
     I --> H2
     D -- "NO" --> G[+2 FRAMES] 
     G --> J{"FAW?"} -- "YES" --> L1[+2 FRAMES] 
     L1 --> H2
-    J -- "NO" --> L(["Realinhando"]) 
+    J -- "NO" --> L(["realigning..."]) 
     L --> K[+1 bit] 
     K --> K1{"FAW?"} 
     K1 -- "YES" --> K2[+1 FRAMES] 
