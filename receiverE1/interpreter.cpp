@@ -23,7 +23,7 @@ string bytesplitter(string &frame){
     return byte; 
 }
 
-void frameinterpreter(string frame, bool FawFrame){
+void frameinterpreter(string frame, bool FawFrame, bool &alignment, string FAW){
     // split the PCM30 frame into its components 
     vector<string> frameComponents;
     for (int i = 0; i < 32; i++){
@@ -31,7 +31,13 @@ void frameinterpreter(string frame, bool FawFrame){
     }
 
     if(FawFrame){
+        if (frameComponents[0] == FAW){
         cout << "Frame Alignment Word: " << frameComponents[0] << endl;
+        }else {
+            alignment = false;
+            cout << "Frame not aligned, realigning..." << endl;
+            return;
+        }
     }else{  
         cout << "Aux byte 1: " << frameComponents[0] << endl;
     }

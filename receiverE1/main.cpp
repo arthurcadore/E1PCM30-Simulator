@@ -1,5 +1,9 @@
 #include "main.h"
 
+string AuxBit = "1";
+string FAW = "0011011";
+string FAWcomplete = AuxBit + FAW; 
+
 int frameindex = 1; 
 bool alignment = false; 
 
@@ -12,8 +16,8 @@ int main() {
 
         // align the frame
         if (!alignment){
-        //cout << "Frame not aligned" << endl;
-        alignment = aligner(frame);
+        cout << "PCM 30 Frame not aligned, aligning..." << endl;
+        alignment = aligner(frame, FAWcomplete);
         }else {
             cout << endl;
             cout << "###################################" << endl;
@@ -22,12 +26,12 @@ int main() {
             if (frameindex % 2 != 0){
                 string frame = frameGetter(); 
                // cout << "This is a FAW frame: " << frame << endl;
-                frameinterpreter(frame, true);
+                frameinterpreter(frame, true, alignment, FAWcomplete);
 
             }else{
                 string frame = frameGetter(); 
              //   cout << "This is not a FAW frame: " << frame << endl;
-                frameinterpreter(frame, false);
+                frameinterpreter(frame, false, alignment, FAWcomplete);
             }
 
             frameindex++;

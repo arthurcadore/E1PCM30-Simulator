@@ -1,8 +1,5 @@
 #include "aligner.h"
 
-string AuxBit = "1";
-string FAW = "0011011";
-string FAWcomplete = AuxBit + FAW; 
 string jumboframe;
 int alignIndex = 1;
 
@@ -16,9 +13,9 @@ void concatenator(string frame)
 // aligner function to align the jumboframe and extract the frames
 // the aligner function find for the FAW in the jumboframe and count the number of bits before the FAW
 
-bool finderFAW() {
+bool finderFAW(string FAW) {
     // Find the first occurrence of FAWcomplete in jumboframe
-    size_t index = jumboframe.find(FAWcomplete);
+    size_t index = jumboframe.find(FAW);
 
     if (index == string::npos) {
         // FAWcomplete not found, return false
@@ -41,20 +38,20 @@ bool finderFAW() {
     jumboframe.erase(0, index + 1);
 
     // Recursively continue searching for FAWcomplete
-    return finderFAW(); 
+    return finderFAW(FAW); 
 }
 
 
 // aligner main function 
 
-bool aligner(string frame){
+bool aligner(string frame, string FAW){
 
     // print the jumboframe length
     //cout << "jumboframe length: " << jumboframe.length() << endl;
 
     if (alignIndex == 5){
         alignIndex = 0;
-        if (finderFAW() != false){
+        if (finderFAW(FAW) != false){
             return true;
         }
     }

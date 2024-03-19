@@ -13,9 +13,9 @@ using namespace std;
 
 void concatenator(string frame); 
 
-bool finderFAW();
+bool finderFAW(string FAW);
 
-bool aligner(string frame);
+bool aligner(string frame, string FAW);
 
 string frameGetter();
 
