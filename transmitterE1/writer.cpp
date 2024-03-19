@@ -13,7 +13,7 @@ void concatenator(string frame)
 
 void writerpipe(string frame) {
 
-    ofstream fifo("/tmp/pcm30_transmission_pipe", ios::out | ios::trunc);
+    ofstream fifo("../transmission/pcm30_transmission_pipe", ios::out | ios::trunc);
 
     if (!fifo.is_open()) {
         cerr << "error opening the pipe" << endl;
@@ -26,21 +26,30 @@ void writerpipe(string frame) {
     return;
 }
 
+string randomstring(){
+    string str;
+
+    int stringlength = rand() % 256 + 1;
+    for (int i = 0; i < stringlength; i++) {
+        int bit = rand() % 2;
+        str += to_string(bit);
+    }
+
+    return str; 
+}
+
 void writer(string frame, bool misalignment){
 
-  if(misalignment)
-    {
-      // create a random binary string of variable length of 1 to 256 bits 
-
-      string randomBinary;
-      for (int i = 0; i < 256; i++){
-          randomBinary += to_string(rand() % 2);
-      }
-       
-
+  if(misalignment){
+      string random = randomstring();
+      concatenator(random);
     }
-     concatenator(frame);
+    
+    concatenator(frame);
 
-
-
+    // write to pipe 256 bits of jumboframe and erase them from jumboframe
+    if(jumboframe.length() >= 256){
+        writerpipe(jumboframe.substr(0, 256));
+        jumboframe.erase(0, 256);
+    }
 }
