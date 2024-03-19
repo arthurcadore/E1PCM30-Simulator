@@ -5,8 +5,28 @@
 The Alignment algorithm used to sincronize the Transmitter and Receiver programs is displayed below: 
 
 ```mermaid
-flowchart TD 
-    A-->B;
+flowchart TD
+    A(["Alinhado"]) --> B{"FAW?"}
+    B -- "NO" --> C[+2 FRAMES]
+    C --> D{"FAW?"} 
+    C -- "YES" --> E[+2 FRAMES] 
+    E --> H2(["Alinhado"])
+    B -- "YES" --> I[+2 FRAMES] 
+    I --> H2
+    D -- "NO" --> G[+2 FRAMES] 
+    G --> J{"FAW?"} -- "YES" --> L1[+2 FRAMES] 
+    L1 --> H2
+    J -- "NO" --> L(["Realinhando"]) 
+    L --> K[+1 bit] 
+    K --> K1{"FAW?"} 
+    K1 -- "YES" --> K2[+1 FRAMES] 
+    K2 --> K3{"B1 = 1?"} 
+    K3 -- "YES" --> K4{"FAW?"}
+    K1 -- "NO" --> L
+    K2 -- "NO" --> L
+    K4 -- "YES" --> K6[bit A=0] 
+    K6 --> H2
+    K4 -- "NO" --> L
 ```
 ---
 ### Getting Started: 
