@@ -23,7 +23,7 @@ int main() {
     usleep(125000);
 
     // after 22 frames, send a misalignment to simulate a misalignment problem 
-    if (frameindex == 100){
+    if (frameindex == 22){
       misalignment();
     }
   }

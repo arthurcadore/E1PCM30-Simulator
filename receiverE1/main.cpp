@@ -6,6 +6,7 @@ string FAWcomplete = AuxBit + FAW;
 
 int frameindex = 1; 
 bool alignment = false; 
+bool checker = false; 
 
 int main() {
 
@@ -16,6 +17,12 @@ int main() {
 
         // align the frame
         if (!alignment){
+            if(checker == true){
+                erasejumboframe();
+                eraseindex();
+                checker = false;
+                frameindex = 1;
+            }
         cout << "PCM 30 Frame not aligned, aligning..." << endl;
         alignment = aligner(frame, FAWcomplete);
         }else {
@@ -33,7 +40,9 @@ int main() {
              //   cout << "This is not a FAW frame: " << frame << endl;
                 frameinterpreter(frame, false, alignment, FAWcomplete);
             }
-
+            if (checker == false){
+                checker = true;
+            };
             frameindex++;
         }
         // sleep for 125ms

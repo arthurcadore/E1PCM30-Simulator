@@ -50,7 +50,6 @@ bool aligner(string frame, string FAW){
     //cout << "jumboframe length: " << jumboframe.length() << endl;
 
     if (alignIndex == 5){
-        alignIndex = 0;
         if (finderFAW(FAW) != false){
             return true;
         }
@@ -65,4 +64,12 @@ string frameGetter(){
     return frame;
 }
 
+// erase all the jumboframe
+void erasejumboframe(){
+    jumboframe = "";
+}
+
+void eraseindex(){
+    alignIndex = 1;
+}
 

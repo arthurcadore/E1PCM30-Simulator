@@ -19,4 +19,8 @@ bool aligner(string frame, string FAW);
 
 string frameGetter();
 
+void erasejumboframe();
+
+void eraseindex();
+
 #endif
