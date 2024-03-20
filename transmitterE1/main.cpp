@@ -9,12 +9,12 @@ int main() {
     // check if the frame is a FAW frame by verifing if frame index is an odd number  
     if (frameindex % 2 != 0){
       newFrame = createFrame(true);
+      cout << "Frame " << frameindex << " with FAW: " << newFrame << endl;
     }else{
       newFrame = createFrame(false);
+      cout << "Frame " << frameindex << " without FAW: " << newFrame << endl;
     }
 
-    cout << "Frame " << frameindex << " content: " << endl << endl;
-    cout << newFrame << endl;
     writer(newFrame);
 
     frameindex++;

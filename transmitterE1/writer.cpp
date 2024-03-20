@@ -9,16 +9,15 @@ void concatenator(string frame){
 }
 
 void writerpipe(string frame) {
-    ofstream fifo(defaultPipeDirectory, ios::out | ios::in);
+    ofstream fifo(defaultPipeDirectory, ios::out | ios::binary);
 
     if (!fifo.is_open()) {
         cerr << "error opening the pipe" << endl;
         return;
     }
 
-    fifo << frame << endl;
+    fifo.write(frame.c_str(), frame.size());
     fifo.close();
-    return;
 }
 
 string randomstring(){

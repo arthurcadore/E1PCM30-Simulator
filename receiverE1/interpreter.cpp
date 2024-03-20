@@ -1,7 +1,5 @@
 #include "interpreter.h"
 
-int frameslot = 0; 
-
 string binaryToHex(const string &binary) {
     stringstream ss;
     ss << std::hex << std::setfill('0');
