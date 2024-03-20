@@ -12,6 +12,6 @@ using namespace std;
 
 string bytesplitter(string &frame); 
 
-void frameinterpreter(string frame, bool FawFrame, bool &alignment, string FAW);
+void frameinterpreter(string frame, bool FawFrame, bool &alignment, string FAW, int frameindex);
 
 #endif // INTERPRETER_H

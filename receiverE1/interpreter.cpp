@@ -21,7 +21,40 @@ string bytesplitter(string &frame){
     return byte; 
 }
 
-void frameinterpreter(string frame, bool FawFrame, bool &alignment, string FAW){
+vector<string> slotsplitter(string &frame){
+    // split the frame string of 8 bits into 2 strings of 4 bits 
+    // store the 2 strings in a vector
+    vector<string> slot;
+    slot.push_back(frame.substr(0, 4));
+    slot.push_back(frame.substr(4, 4));
+
+    return slot;
+}
+
+int cyclechecker(int frameindex){
+    // calculate cycle number 1 to 15 by using the frame index
+    int cycleNumber = (frameindex % 15) + 1;
+
+    // adjust the cycle number to be in the range 1 to 16
+    if (cycleNumber == 16) {
+        cycleNumber = 1;
+    }
+
+    return cycleNumber;
+}
+void sinalizationSlot(string &slot, int frameindex){
+
+    int cycleNumber = cyclechecker(frameindex);
+
+    cout << "Sinalization Slot " << cycleNumber << " " << endl;
+
+    vector<string> slotComponents = slotsplitter(slot);
+
+    cout << "Phone Channel " << cycleNumber << " : " << slotComponents[0] << endl;
+    cout << "Phone Channel " << cycleNumber+15 << " : " << slotComponents[1] << endl;
+}
+
+void frameinterpreter(string frame, bool FawFrame, bool &alignment, string FAW, int frameindex){
     // split the PCM30 frame into its components 
     vector<string> frameComponents;
     for (int i = 0; i < 32; i++){
@@ -37,9 +70,11 @@ void frameinterpreter(string frame, bool FawFrame, bool &alignment, string FAW){
             return;
         }
     }else{  
-        cout << "Aux byte 1: " << frameComponents[0] << endl;
+        cout << "Service Word: " << frameComponents[0] << endl;
     }
-    cout << "Sinalization Slot: " << frameComponents[16] << endl;
+
+    sinalizationSlot(frameComponents[16], frameindex);
+
     
     for (int i = 1; i < 16; i++){
 

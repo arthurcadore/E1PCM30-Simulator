@@ -33,12 +33,12 @@ int main() {
             if (frameindex % 2 != 0){
                 string frame = frameGetter(); 
                // cout << "This is a FAW frame: " << frame << endl;
-                frameinterpreter(frame, true, alignment, FAWcomplete);
+                frameinterpreter(frame, true, alignment, FAWcomplete, frameindex);
 
             }else{
                 string frame = frameGetter(); 
              //   cout << "This is not a FAW frame: " << frame << endl;
-                frameinterpreter(frame, false, alignment, FAWcomplete);
+                frameinterpreter(frame, false, alignment, FAWcomplete, frameindex);
             }
             if (checker == false){
                 checker = true;
