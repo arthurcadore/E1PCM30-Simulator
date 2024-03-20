@@ -1,9 +1,23 @@
 #include "main.h"
 
 int frameindex = 1;
+int randomframe = 20;
 
 int main() {
   while(true){
+
+    if(frameindex == randomframe){
+      cout << endl << endl;
+      cout << "##########################" << endl;
+      cout << "Simulating misalignment..." << endl;
+      misalignment();
+
+      // create a new random frame index
+      randomframe = rand() % 100 + 1;
+      cout << "##########################" << endl;
+      cout << "New random frame index: " << randomframe << endl;
+      cout << endl << endl;
+    }
 
     string newFrame; 
     // check if the frame is a FAW frame by verifing if frame index is an odd number  
@@ -16,15 +30,9 @@ int main() {
     }
 
     writer(newFrame);
-
     frameindex++;
 
     // sleep for 125ms
     usleep(125000);
-
-    // after 22 frames, send a misalignment to simulate a misalignment problem 
-    if (frameindex == 22){
-      misalignment();
-    }
   }
 }
