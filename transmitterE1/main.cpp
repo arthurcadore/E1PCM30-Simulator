@@ -10,6 +10,7 @@ int main() {
       cout << endl << endl;
       cout << "##########################" << endl;
       cout << "Simulating misalignment..." << endl;
+      frameindex = 1;
       misalignment();
 
       // create a new random frame index
