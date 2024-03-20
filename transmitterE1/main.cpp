@@ -14,7 +14,7 @@ int main() {
       misalignment();
 
       // create a new random frame index
-      randomframe = rand() % 100 + 1;
+      randomframe = rand() % 100 + 10;
       cout << "##########################" << endl;
       cout << "New random frame index: " << randomframe << endl;
       cout << endl << endl;
